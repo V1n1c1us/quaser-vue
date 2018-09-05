@@ -35,15 +35,16 @@ export default {
           titulo: '',
           amount:'',
           description:'',
-          data: moment().format('DD/MM/YYYY')
+          data: moment().format('DD/MM/YYYY'),
+          done: false
         }
       }
   },
   methods: {
       enviar () {
           const cloned = JSON.parse(JSON.stringify(this.expense))
-          //gera id
-          cloned.id = uid.id
+          
+          //cloned.id = uid()
 
           this.$store.commit('ADD_EXPENSE', cloned)
           this.reset()

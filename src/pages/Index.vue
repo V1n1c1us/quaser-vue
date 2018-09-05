@@ -14,11 +14,16 @@
 <script>
 import CcForm from 'layouts/Form.vue'
 import CcLista from 'layouts/lista.vue'
+import { getExpenses } from '../persistence'
 export default {
   name: 'PageIndex',
   components: {
     CcForm,
     CcLista
+  },
+  mounted () {
+    const expenses = getExpenses()
+    this.$store.commit('SET_EXPENSE', getExpenses())
   },
     computed: {
     list () {
